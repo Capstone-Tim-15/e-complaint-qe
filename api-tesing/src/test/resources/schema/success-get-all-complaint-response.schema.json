@@ -1,0 +1,144 @@
+{
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "$ref": "#/definitions/SuccessGetAllComplaintResponse",
+  "definitions": {
+    "SuccessGetAllComplaintResponse": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "meta": {
+          "$ref": "#/definitions/Meta"
+        },
+        "results": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Result"
+          }
+        }
+      },
+      "required": [
+        "meta",
+        "results"
+      ],
+      "title": "SuccessGetAllComplaintResponse"
+    },
+    "Meta": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "success": {
+          "type": "boolean"
+        },
+        "message": {
+          "type": "string"
+        },
+        "page": {
+          "type": "integer"
+        },
+        "limit": {
+          "type": "integer"
+        },
+        "total": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "limit",
+        "message",
+        "page",
+        "success",
+        "total"
+      ],
+      "title": "Meta"
+    },
+    "Result": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "userId": {
+          "$ref": "#/definitions/UserID"
+        },
+        "name": {
+          "$ref": "#/definitions/Name"
+        },
+        "photoImage": {
+          "type": "string"
+        },
+        "category": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "content": {
+          "type": "string"
+        },
+        "address": {
+          "type": "string"
+        },
+        "status": {
+          "$ref": "#/definitions/Status"
+        },
+        "imageUrl": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updateAt": {
+          "type": "string"
+        },
+        "comment": {
+          "type": "null"
+        }
+      },
+      "required": [
+        "address",
+        "category",
+        "comment",
+        "content",
+        "createdAt",
+        "id",
+        "imageUrl",
+        "name",
+        "photoImage",
+        "status",
+        "title",
+        "updateAt",
+        "userId"
+      ],
+      "title": "Result"
+    },
+    "Name": {
+      "type": "string",
+      "enum": [
+        "ara",
+        "anggun",
+        "anisa"
+      ],
+      "title": "Name"
+    },
+    "Status": {
+      "type": "string",
+      "enum": [
+        "SEND",
+        "Selesai",
+        "Diproses"
+      ],
+      "title": "Status"
+    },
+    "UserID": {
+      "type": "string",
+      "enum": [
+        "VQ0fXT",
+        "TyiB16",
+        "gLir5y"
+      ],
+      "title": "UserID"
+    }
+  }
+}

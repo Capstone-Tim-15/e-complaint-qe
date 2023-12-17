@@ -1,0 +1,96 @@
+{
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "$ref": "#/definitions/SuccessGetAllUserResponse",
+  "definitions": {
+    "SuccessGetAllUserResponse": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "meta": {
+          "$ref": "#/definitions/Meta"
+        },
+        "results": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Result"
+          }
+        }
+      },
+      "required": [
+        "meta",
+        "results"
+      ],
+      "title": "SuccessGetAllUserResponse"
+    },
+    "Meta": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "success": {
+          "type": "boolean"
+        },
+        "message": {
+          "type": "string"
+        },
+        "page": {
+          "type": "integer"
+        },
+        "limit": {
+          "type": "integer"
+        },
+        "total": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "limit",
+        "message",
+        "page",
+        "success",
+        "total"
+      ],
+      "title": "Meta"
+    },
+    "Result": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "username": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "imageUrl": {
+          "$ref": "#/definitions/ImageURL"
+        }
+      },
+      "required": [
+        "email",
+        "id",
+        "imageUrl",
+        "name",
+        "phone",
+        "username"
+      ],
+      "title": "Result"
+    },
+    "ImageURL": {
+      "type": "string",
+      "enum": [
+        "",
+        "e8p1hohxztf8hdramtgv.png"
+      ],
+      "title": "ImageURL"
+    }
+  }
+}
