@@ -1,0 +1,137 @@
+{
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "$ref": "#/definitions/SuccessGetSingleComplaintResponse",
+  "definitions": {
+    "SuccessGetSingleComplaintResponse": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "meta": {
+          "$ref": "#/definitions/Meta"
+        },
+        "results": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Result"
+          }
+        }
+      },
+      "required": [
+        "meta",
+        "results"
+      ],
+      "title": "SuccessGetSingleComplaintResponse"
+    },
+    "Meta": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "success": {
+          "type": "boolean"
+        },
+        "message": {
+          "type": "string"
+        },
+        "page": {
+          "type": "integer"
+        },
+        "limit": {
+          "type": "integer"
+        },
+        "total": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "limit",
+        "message",
+        "page",
+        "success",
+        "total"
+      ],
+      "title": "Meta"
+    },
+    "Result": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "userId": {
+          "$ref": "#/definitions/UserID"
+        },
+        "name": {
+          "type": "string"
+        },
+        "photoImage": {
+          "type": "string"
+        },
+        "category": {
+          "$ref": "#/definitions/Category"
+        },
+        "title": {
+          "$ref": "#/definitions/Title"
+        },
+        "content": {
+          "type": "string"
+        },
+        "status": {
+          "$ref": "#/definitions/Status"
+        },
+        "imageUrl": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "comment": {
+          "type": "null"
+        }
+      },
+      "required": [
+        "category",
+        "comment",
+        "content",
+        "createdAt",
+        "id",
+        "imageUrl",
+        "name",
+        "photoImage",
+        "status",
+        "title",
+        "userId"
+      ],
+      "title": "Result"
+    },
+    "Category": {
+      "type": "string",
+      "enum": [
+        "category 1"
+      ],
+      "title": "Category"
+    },
+    "Status": {
+      "type": "string",
+      "enum": [
+        "SEND"
+      ],
+      "title": "Status"
+    },
+    "Title": {
+      "type": "string",
+      "enum": [
+        "lingkungan"
+      ],
+      "title": "Title"
+    },
+    "UserID": {
+      "type": "string",
+      "enum": [
+        "VQ0fXT"
+      ],
+      "title": "UserID"
+    }
+  }
+}
