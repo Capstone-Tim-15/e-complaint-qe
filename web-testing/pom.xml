@@ -125,6 +125,7 @@
                 <artifactId>serenity-maven-plugin</artifactId>
                 <version>${serenity.version}</version>
                 <configuration>
+                    <!--suppress UnresolvedMavenProperty -->
                     <tags>${tags}</tags>
                 </configuration>
                 <executions>

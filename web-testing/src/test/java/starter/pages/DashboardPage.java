@@ -11,7 +11,7 @@ public class DashboardPage extends PageObject {
         return By.xpath("/html/body/div/row/div/nav/span");
     }
     private By dashboardMenu() {
-        return By.xpath("/html/body/div/row/row/div[1]/div/div[1]/ul/li[1]/div/a");
+        return By.xpath("//div[@class='your-class-name']/ul/li[1]/div\n");
     }
 
 //NOTIF
@@ -32,12 +32,15 @@ public class DashboardPage extends PageObject {
         return By.xpath("/html/body/div[3]/div/div/div[2]/button[1]");
     }
 
+// NEWS
+    private By newsButton() {return By.xpath("/html/body/div/row/row/div[1]/div/div[1]/ul/li[3]/div/a");}
+
 
 //CODESTEP
     //Title
     @Step
     public boolean validateOnDashboard() {
-        return $(dashboardMenu()).isDisplayed();
+        return $(newsButton()).isDisplayed();
     }
 
     //Notif
@@ -66,5 +69,13 @@ public class DashboardPage extends PageObject {
     public void clickCancelButton() {
         $(cancelButton()).click();
     }
+
+    @Step
+    public void clickNewsButton() {
+        $(newsButton()).click();
+    }
+
+
+
 
 }
