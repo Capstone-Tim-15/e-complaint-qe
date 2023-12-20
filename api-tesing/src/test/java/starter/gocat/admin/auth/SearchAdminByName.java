@@ -6,12 +6,14 @@ import net.thucydides.core.annotations.Step;
 import org.junit.Assert;
 
 
+import static starter.Url.adminUrl;
+import static starter.Url.invUrl;
 import static starter.utils.GenerateToken.tokenAdmin;
 
 public class SearchAdminByName {
 
 
-    private static RequestSpecification requestNameSpec;
+    private static final RequestSpecification requestNameSpec;
 
     static {
         requestNameSpec = SerenityRest.given()
@@ -20,22 +22,22 @@ public class SearchAdminByName {
                 .header("Content-Type", "application/json");
     }
 
-    private static String url = "http://34.128.69.15:8000";
+
 
     @Step("I set {String} for search admin by name")
     public String setEndpointSearchAdminByName(String endpointNameType) {
         String endpointName = null;
         switch (endpointNameType) {
             case "valid endpoint":
-                endpointName = "/admin/search";
+                endpointName = adminUrl + "search";
                 break;
             case "invalid endpoint":
-                endpointName = "/adm/";
+                endpointName = invUrl;
                 break;
             default:
                 Assert.fail("Unsupported endpoint type: " + endpointNameType);
         }
-        return url + endpointName;
+        return endpointName;
     }
 
     @Step("I send get request to {String} search admin by name endpoint")

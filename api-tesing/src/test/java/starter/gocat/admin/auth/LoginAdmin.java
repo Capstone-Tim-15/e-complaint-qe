@@ -5,23 +5,25 @@ import net.thucydides.core.annotations.Step;
 import org.json.JSONObject;
 import org.junit.Assert;
 
+import static starter.Url.adminLoginUrl;
+import static starter.Url.invUrl;
+
 public class LoginAdmin {
-    private static String url = "http://34.128.69.15:8000";
 
     @Step("I set {String} endpoint for admin login")
     public String setEndpointAdminLogin(String endpointType) {
         String endpoint = null;
         switch (endpointType) {
             case "valid":
-                endpoint = "/admin/login";
+                endpoint = adminLoginUrl;
                 break;
             case "invalid":
-                endpoint = "/adm/login";
+                endpoint = invUrl;
                 break;
             default:
-                break;
+                Assert.fail("Unsupported endpoint type: " + endpointType);
         }
-        return url + endpoint;
+        return endpoint;
     }
 
     @Step("I send post request with valid requestBody to {String} admin login endpoint")
@@ -43,6 +45,8 @@ public class LoginAdmin {
                         .body(requestBody.toString())
                         .post(setEndpointAdminLogin("invalid"));
                 break;
+            default:
+                Assert.fail("Unsupported base type: " + baseType);
         }
     }
 

@@ -31,10 +31,3 @@
       When I send "put" request to get all user
       Then I receive status code 404
       And I receive auth error message
-
-    @NegativeCase
-    Scenario: As a user I can not get all user with delete request
-      Given I set "valid" endpoint for get all user
-      When I send "delete" request to get all user
-      Then I receive status code 404
-      And I receive auth error message

@@ -1,0 +1,66 @@
+{
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "$ref": "#/definitions/SuccessSendOtpUserResponse",
+  "definitions": {
+    "SuccessSendOtpUserResponse": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "meta": {
+          "$ref": "#/definitions/Meta"
+        },
+        "results": {
+          "$ref": "#/definitions/Results"
+        }
+      },
+      "required": [
+        "meta",
+        "results"
+      ],
+      "title": "SuccessSendOtpUserResponse"
+    },
+    "Meta": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "success": {
+          "type": "boolean"
+        },
+        "message": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "message",
+        "success"
+      ],
+      "title": "Meta"
+    },
+    "Results": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "userId": {
+          "type": "string"
+        },
+        "otp": {
+          "type": "string",
+          "format": "integer"
+        },
+        "token": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "otp",
+        "token",
+        "userId"
+      ],
+      "title": "Results"
+    }
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "$ref": "#/definitions/SuccessGetCategoryByIDResponse",
+  "definitions": {
+    "SuccessGetCategoryByIDResponse": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "meta": {
+          "$ref": "#/definitions/Meta"
+        },
+        "results": {
+          "$ref": "#/definitions/Results"
+        }
+      },
+      "required": [
+        "meta",
+        "results"
+      ],
+      "title": "SuccessGetCategoryByIDResponse"
+    },
+    "Meta": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "success": {
+          "type": "boolean"
+        },
+        "message": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "message",
+        "success"
+      ],
+      "title": "Meta"
+    },
+    "Results": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "CategoryName": {
+          "type": "string"
+        },
+        "faq": {
+          "type": "null"
+        }
+      },
+      "required": [
+        "CategoryName",
+        "faq",
+        "id"
+      ],
+      "title": "Results"
+    }
+  }
+}

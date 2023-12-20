@@ -1,8 +1,8 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$ref": "#/definitions/SuccessGetSingleComplaintResponse",
+  "$ref": "#/definitions/SuccessGetComplaintByIDResponse",
   "definitions": {
-    "SuccessGetSingleComplaintResponse": {
+    "SuccessGetComplaintByIDResponse": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
@@ -20,7 +20,7 @@
         "meta",
         "results"
       ],
-      "title": "SuccessGetSingleComplaintResponse"
+      "title": "SuccessGetComplaintByIDResponse"
     },
     "Meta": {
       "type": "object",
@@ -59,7 +59,7 @@
           "type": "string"
         },
         "userId": {
-          "$ref": "#/definitions/UserID"
+          "type": "string"
         },
         "name": {
           "type": "string"
@@ -68,16 +68,19 @@
           "type": "string"
         },
         "category": {
-          "$ref": "#/definitions/Category"
+          "type": "string"
         },
         "title": {
-          "$ref": "#/definitions/Title"
+          "type": "string"
         },
         "content": {
           "type": "string"
         },
+        "address": {
+          "$ref": "#/definitions/Address"
+        },
         "status": {
-          "$ref": "#/definitions/Status"
+          "type": "string"
         },
         "imageUrl": {
           "type": "string"
@@ -86,11 +89,15 @@
           "type": "string",
           "format": "date-time"
         },
+        "updateAt": {
+          "type": "string"
+        },
         "comment": {
           "type": "null"
         }
       },
       "required": [
+        "address",
         "category",
         "comment",
         "content",
@@ -101,37 +108,19 @@
         "photoImage",
         "status",
         "title",
+        "updateAt",
         "userId"
       ],
       "title": "Result"
     },
-    "Category": {
+    "Address": {
       "type": "string",
       "enum": [
-        "category 1"
+        "sdasdasdwasdas",
+        "jl.pahlawan",
+        ""
       ],
-      "title": "Category"
-    },
-    "Status": {
-      "type": "string",
-      "enum": [
-        "SEND"
-      ],
-      "title": "Status"
-    },
-    "Title": {
-      "type": "string",
-      "enum": [
-        "lingkungan"
-      ],
-      "title": "Title"
-    },
-    "UserID": {
-      "type": "string",
-      "enum": [
-        "VQ0fXT"
-      ],
-      "title": "UserID"
+      "title": "Address"
     }
   }
 }

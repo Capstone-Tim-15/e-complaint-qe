@@ -18,8 +18,7 @@ import java.util.Map;
 import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchema;
 import static net.serenitybdd.rest.SerenityRest.restAssuredThat;
 import static org.hamcrest.Matchers.notNullValue;
-import static starter.Url.complaint;
-import static starter.Url.invComplaint;
+import static starter.Url.*;
 import static starter.utils.GenerateToken.tokenUser;
 
 public class CreateComplaint {
@@ -45,10 +44,10 @@ public class CreateComplaint {
         String endpoint = null;
         switch (endpointType) {
             case "valid":
-                endpoint = complaint;
+                endpoint = userComplaintUrl;
                 break;
             case "invalid":
-                endpoint = invComplaint;
+                endpoint = invUrl;
                 break;
             default:
                 Assert.fail("Unsupported base type: " + endpointType);

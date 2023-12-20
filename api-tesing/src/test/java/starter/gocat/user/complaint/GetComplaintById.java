@@ -12,7 +12,7 @@ import static net.serenitybdd.rest.SerenityRest.restAssuredThat;
 import static starter.Url.*;
 import static starter.utils.GenerateToken.tokenUser;
 
-public class GetSingleComplaint {
+public class GetComplaintById {
 
 
 //    private static String getBearerToken() {
@@ -32,10 +32,10 @@ public class GetSingleComplaint {
             String endpoint = null;
             switch (endpointType) {
                 case "valid":
-                    endpoint = complaint;
+                    endpoint = userComplaintUrl;
                     break;
                 case "invalid":
-                    endpoint = invComplaint;
+                    endpoint = invUrl;
                     break;
                 default:
                     Assert.fail("Unsupported base type: " + endpointType);
@@ -68,7 +68,7 @@ public class GetSingleComplaint {
     @Step("I receive detail complaint")
     public void receiveDetailComplaint() {
         JsonSchemaHelper helper = new JsonSchemaHelper();
-        String schema = helper.getResponseSchema(JsonSchema.SUCCESS_GET_ALL_COMPLAINT_RESPONSE_SCHEMA);
+        String schema = helper.getResponseSchema(JsonSchema.SUCCESS_GET_COMPLAINT_BY_ID_RESPONSE_SCHEMA);
 
         restAssuredThat(response -> response.body(matchesJsonSchema(schema)));
     }

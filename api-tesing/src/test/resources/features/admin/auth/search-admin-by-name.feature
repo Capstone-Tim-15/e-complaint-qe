@@ -1,5 +1,6 @@
 @SearchAdmin
 
+  @SearchAdminByName
   Feature: Search Admin By Name
     As an admin
     I want to search admin by name

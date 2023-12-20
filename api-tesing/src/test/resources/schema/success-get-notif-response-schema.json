@@ -1,0 +1,34 @@
+{
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "type": "array",
+  "items": {
+    "$ref": "#/definitions/SuccessGetNotifResponseElement"
+  },
+  "definitions": {
+    "SuccessGetNotifResponseElement": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "ID": {
+          "type": "string"
+        },
+        "Complain_ID": {
+          "type": "string"
+        },
+        "Message": {
+          "type": "string"
+        },
+        "Status": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "Complain_ID",
+        "ID",
+        "Message",
+        "Status"
+      ],
+      "title": "SuccessGetNotifResponseElement"
+    }
+  }
+}

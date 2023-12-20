@@ -1,0 +1,95 @@
+{
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "$ref": "#/definitions/SuccessGetAllCategoryResponse",
+  "definitions": {
+    "SuccessGetAllCategoryResponse": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "meta": {
+          "$ref": "#/definitions/Meta"
+        },
+        "results": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Result"
+          }
+        }
+      },
+      "required": [
+        "meta",
+        "results"
+      ],
+      "title": "SuccessGetAllCategoryResponse"
+    },
+    "Meta": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "success": {
+          "type": "boolean"
+        },
+        "message": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "message",
+        "success"
+      ],
+      "title": "Meta"
+    },
+    "Result": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "CategoryName": {
+          "type": "string"
+        },
+        "faq": {
+          "anyOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/FAQ"
+              }
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "CategoryName",
+        "faq",
+        "id"
+      ],
+      "title": "Result"
+    },
+    "FAQ": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "content": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "content",
+        "id",
+        "title"
+      ],
+      "title": "FAQ"
+    }
+  }
+}
