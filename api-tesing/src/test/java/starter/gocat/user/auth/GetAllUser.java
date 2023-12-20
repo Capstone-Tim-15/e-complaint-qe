@@ -10,6 +10,8 @@ import starter.utils.JsonSchemaHelper;
 import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchema;
 import static net.serenitybdd.rest.SerenityRest.restAssuredThat;
 import static org.hamcrest.Matchers.notNullValue;
+import static starter.Url.invUrl;
+import static starter.Url.userUrl;
 import static starter.utils.GenerateToken.tokenUser;
 
 public class GetAllUser {
@@ -24,23 +26,23 @@ public class GetAllUser {
                 .header("Content-Type", "application/json");
     }
 
-    private static String url = "http://34.128.69.15:8000";
+
 
     @Step("I set {String} endpoint for get all user")
     public String setEndpointGetAllUser(String endpointType) {
         String endpoint = null;
         switch (endpointType) {
             case "valid":
-                endpoint = "/user";
+                endpoint = userUrl;
                 break;
             case "invalid":
-                endpoint = "/users";
+                endpoint = invUrl;
                 break;
             default:
                 Assert.fail("Unsupported endpoint type: " + endpointType);
                 break;
         }
-        return url + endpoint;
+        return endpoint;
     }
 
     @Step("I send get request to {String} get all user endpoint")

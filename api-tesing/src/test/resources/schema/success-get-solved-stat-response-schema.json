@@ -1,0 +1,73 @@
+{
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "$ref": "#/definitions/SuccessGetSolvedStatResponse",
+  "definitions": {
+    "SuccessGetSolvedStatResponse": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "meta": {
+          "$ref": "#/definitions/Meta"
+        },
+        "results": {
+          "$ref": "#/definitions/Results"
+        }
+      },
+      "required": [
+        "meta",
+        "results"
+      ],
+      "title": "SuccessGetSolvedStatResponse"
+    },
+    "Meta": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "success": {
+          "type": "boolean"
+        },
+        "message": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "message",
+        "success"
+      ],
+      "title": "Meta"
+    },
+    "Results": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "users_statistic": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/UsersStatistic"
+          }
+        }
+      },
+      "required": [
+        "users_statistic"
+      ],
+      "title": "Results"
+    },
+    "UsersStatistic": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "Month": {
+          "type": "string"
+        },
+        "Total": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "Month",
+        "Total"
+      ],
+      "title": "UsersStatistic"
+    }
+  }
+}

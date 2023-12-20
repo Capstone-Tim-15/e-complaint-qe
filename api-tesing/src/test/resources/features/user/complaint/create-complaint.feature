@@ -21,7 +21,7 @@
       And I receive auth error message
 
     @NegativeCase
-    Scenario: As a user I can not create complaint without invalid ID
+    Scenario: As a user I can not create complaint with invalid ID
       Given I set "valid" endpoint for create complaint
       When I send post request with "invalid categoryId" to valid create complaint endpoint
       Then I receive status code 400
