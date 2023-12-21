@@ -11,7 +11,7 @@ public class DashboardPage extends PageObject {
         return By.xpath("/html/body/div/row/div/nav/span");
     }
     private By dashboardMenu() {
-        return By.xpath("/html/body/div/row/row/div[1]/div/div[1]/ul/li[1]/div/a");
+        return By.xpath("//div[@class='your-class-name']/ul/li[1]/div\n");
     }
 
 //NOTIF
@@ -103,6 +103,10 @@ public class DashboardPage extends PageObject {
     @Step
     public boolean getSolvedStat() {
         return $(resolvedStat()).isDisplayed();
+    }
+    @Step
+    public void clickNewsButton() {
+        $(newsButton()).click();
     }
 
 }
