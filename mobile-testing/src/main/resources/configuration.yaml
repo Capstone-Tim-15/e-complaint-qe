@@ -1,0 +1,6 @@
+appiumProperties:
+  platformName: Android
+  deviceName: device
+  app: C:\Users\asus\Downloads\E-complaint v.1.0.4.apk
+  automationName: UiAutomator2
+  autoGrantPermissions: true
