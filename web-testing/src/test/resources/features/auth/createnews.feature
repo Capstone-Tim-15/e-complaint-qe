@@ -1,4 +1,4 @@
-@1
+@News
 Feature: Create News
   As an admin
   I can create news
@@ -17,21 +17,18 @@ Feature: Create News
     When I click news button
     Then I am on the news page
     When I click add news button
-    And I am on the create news page
-    And I enter valid date
+    Then I am on the create news page
     And I enter valid news title
     And I enter valid news content
-    Then I click save button
-    And I redirected to
+    And I click save button
+    And I am on the news page
 
   Scenario: As an admin I cant create news with invalid credentials
     And I click news button
     When I click add news button
-    And I enter invalid date
     And I enter invalid news title
     And I enter invalid news content
-    And I enter invalid file for news content
-    Then I click save button
-    And I redirected to
+    And I click save button
+    And I am on the create news page
 
 

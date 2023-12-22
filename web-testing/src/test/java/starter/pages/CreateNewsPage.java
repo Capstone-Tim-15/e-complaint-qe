@@ -8,7 +8,7 @@ import org.openqa.selenium.WebElement;
 
 public class CreateNewsPage extends PageObject {
 
-    private By dateFields() {return By.xpath("/html/body/div/row/row/div[2]/div[2]/form/div[1]/div/input");}
+    private By dateFields() {return By.xpath("/html/body/div/row/row/div[2]/div[2]/form/div[2]/div/input");}
 
     private By titleFields() {return By.xpath("/html/body/div/row/row/div[2]/div[2]/form/div[2]/div/input");}
 
@@ -34,12 +34,12 @@ public class CreateNewsPage extends PageObject {
 
     @Step
     public void inputValidTitle() {
-        $(titleFields()).type("Mark Lee");
+        $(titleFields()).type("Kondisi Pendidikan Indonesia");
     }
 
     @Step
     public void inputValidContent() {
-        $(contentFields()).type("Mark Lee");
+        $(contentFields()).type("Kondisi Pendidikan Indonesia pada saat ini");
     }
 
     @Step
@@ -80,8 +80,19 @@ public class CreateNewsPage extends PageObject {
 
     }
 
+    @Step
+    public void deleteDate() {
+        $(dateFields()).clear();
+    }
 
+    @Step
+    public void deleteTitle() {
+        $(titleFields()).clear();
+    }
 
-
+    @Step
+    public void deleteContent() {
+        $(contentFields()).clear();
+    }
 
 }

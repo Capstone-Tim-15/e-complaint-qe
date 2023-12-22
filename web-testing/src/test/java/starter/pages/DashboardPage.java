@@ -35,12 +35,14 @@ public class DashboardPage extends PageObject {
 // NEWS
     private By newsButton() {return By.xpath("/html/body/div/row/row/div[1]/div/div[1]/ul/li[3]/div/a");}
 
+    private By navbarDashboard() {return By.xpath("/html/body/div/row/div/nav/span");}
+
 
 //CODESTEP
     //Title
     @Step
     public boolean validateOnDashboard() {
-        return $(newsButton()).isDisplayed();
+        return $(navbarDashboard()).isDisplayed();
     }
 
     //Notif

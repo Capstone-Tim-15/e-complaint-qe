@@ -29,7 +29,7 @@ public class CreateNewsSteps {
     @When("I click add news button")
     public void clickAddNewsButton() {newsPage.clickAddNewsButton();}
 
-    @And("I am on the create news page")
+    @Then("I am on the create news page")
     public void onTheCreateNewsPage() {
         Assertions.assertTrue(createNewsPage.validateOnTheCreateNewsPage());
     }
@@ -46,7 +46,7 @@ public class CreateNewsSteps {
     @And("I enter valid file for news content")
     public void inputValidContentFile() {createNewsPage.inputValidContentFile();}
 
-    @Then("I click save button")
+    @And("I click save button")
     public void clickSaveButton() {createNewsPage.clickSaveButton();}
 
     @And("I redirected to")
