@@ -1,0 +1,52 @@
+{
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "$ref": "#/definitions/SuccessGetSolvedComplaintResponse",
+  "definitions": {
+    "SuccessGetSolvedComplaintResponse": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "meta": {
+          "$ref": "#/definitions/Meta"
+        },
+        "results": {
+          "type": "null"
+        }
+      },
+      "required": [
+        "meta",
+        "results"
+      ],
+      "title": "SuccessGetSolvedComplaintResponse"
+    },
+    "Meta": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "success": {
+          "type": "boolean"
+        },
+        "message": {
+          "type": "string"
+        },
+        "page": {
+          "type": "integer"
+        },
+        "limit": {
+          "type": "integer"
+        },
+        "total": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "limit",
+        "message",
+        "page",
+        "success",
+        "total"
+      ],
+      "title": "Meta"
+    }
+  }
+}

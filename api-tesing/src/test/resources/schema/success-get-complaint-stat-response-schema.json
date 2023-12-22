@@ -1,0 +1,73 @@
+{
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "$ref": "#/definitions/SuccessGetComplaintStatResponse",
+  "definitions": {
+    "SuccessGetComplaintStatResponse": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "meta": {
+          "$ref": "#/definitions/Meta"
+        },
+        "results": {
+          "$ref": "#/definitions/Results"
+        }
+      },
+      "required": [
+        "meta",
+        "results"
+      ],
+      "title": "SuccessGetComplaintStatResponse"
+    },
+    "Meta": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "success": {
+          "type": "boolean"
+        },
+        "message": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "message",
+        "success"
+      ],
+      "title": "Meta"
+    },
+    "Results": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "complaint_statistic": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ComplaintStatistic"
+          }
+        }
+      },
+      "required": [
+        "complaint_statistic"
+      ],
+      "title": "Results"
+    },
+    "ComplaintStatistic": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "Month": {
+          "type": "string"
+        },
+        "Total": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "Month",
+        "Total"
+      ],
+      "title": "ComplaintStatistic"
+    }
+  }
+}

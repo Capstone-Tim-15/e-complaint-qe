@@ -16,8 +16,15 @@ public class DashboardPage extends PageObject {
 
 //NOTIF
     private By notifIcon() {
-        return By.className("iconify iconify--ion");
+        return By.xpath("/html/body/div/row/div/nav/div/div[1]/div/span[1]/a/button");
     }
+
+//COMPLAINT
+    private By complaintMenu() {
+        return By.xpath("/html/body/div/row/row/div[1]/div/div[1]/ul/li[2]/div/a");
+    }
+
+
 
 //LOGOUT
     private By logoutMenu() {
@@ -32,17 +39,32 @@ public class DashboardPage extends PageObject {
         return By.xpath("/html/body/div[3]/div/div/div[2]/button[1]");
     }
 
-// NEWS
-    private By newsButton() {return By.xpath("/html/body/div/row/row/div[1]/div/div[1]/ul/li[3]/div/a");}
+    private By userStat() {
+        return By.xpath("/html/body/div/row/row/div[2]/div[1]/div[1]/div/div[1]/div[1]/h6");
+    }
 
+<<<<<<< HEAD
     private By navbarDashboard() {return By.xpath("/html/body/div/row/div/nav/span");}
 
+=======
+    private By complaintStat() {
+        return By.xpath("/html/body/div/row/row/div[2]/div[1]/div[2]/div/div[1]/div[1]/h6");
+    }
+
+    private By resolvedStat() {
+        return By.xpath("/html/body/div/row/row/div[2]/div[1]/div[3]/div/div[1]/div[1]/h6");
+    }
+>>>>>>> c428dc1dfada1ae4857232d1d4bbb7f7130d2019
 
 //CODESTEP
     //Title
     @Step
     public boolean validateOnDashboard() {
+<<<<<<< HEAD
         return $(navbarDashboard()).isDisplayed();
+=======
+        return $(notifIcon()).isDisplayed();
+>>>>>>> c428dc1dfada1ae4857232d1d4bbb7f7130d2019
     }
 
     //Notif
@@ -73,11 +95,27 @@ public class DashboardPage extends PageObject {
     }
 
     @Step
+    public void clickComplaintMenu() {
+        $(complaintMenu()).click();
+    }
+
+    @Step
+    public boolean getUserStat() {
+        return $(userStat()).isDisplayed();
+    }
+
+    @Step
+    public boolean getComplaintStat() {
+        return $(complaintStat()).isDisplayed();
+    }
+
+    @Step
+    public boolean getSolvedStat() {
+        return $(resolvedStat()).isDisplayed();
+    }
+    @Step
     public void clickNewsButton() {
         $(newsButton()).click();
     }
-
-
-
 
 }

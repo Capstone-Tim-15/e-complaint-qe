@@ -14,9 +14,7 @@ import static starter.utils.GenerateToken.tokenUser;
 
 public class GetAllComplaint {
 
-    private static String getBearerToken() {
-       return  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRob3JpemVkIjp0cnVlLCJlbWFpbCI6ImhydGtzbUBnbWFpbC5jb20iLCJleHAiOjE3MDE2Nzc2MjEsImlkIjoiazc0Tm42IiwibmFtZSI6ImFuZ2d1biJ9.ZfR-ziNeId6ylhFvihGlfrWRA08m0rBZPsf21xpOXCk";
-    }
+
 
     private static final RequestSpecification requestSpec;
 
@@ -31,10 +29,10 @@ public class GetAllComplaint {
         String endpoint = null;
         switch (endpointType) {
             case "valid":
-                endpoint = complaint;
+                endpoint = userComplaintUrl;
                 break;
             case "invalid":
-                endpoint = invComplaint;
+                endpoint = invUrl;
                 break;
             default:
                 Assert.fail("Unsupported base type: " + endpointType);

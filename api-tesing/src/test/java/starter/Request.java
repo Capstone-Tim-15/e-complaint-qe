@@ -1,4 +1,7 @@
-//package starter;
+package starter;
+
+import io.restassured.response.Response;
+
 //
 //import io.restassured.specification.RequestSpecification;
 //import net.serenitybdd.rest.SerenityRest;
@@ -6,7 +9,7 @@
 //import static starter.utils.GenerateToken.adminToken;
 //import static starter.utils.GenerateToken.userToken;
 //
-//public class Request {
+public class Request {
 //    public static final RequestSpecification adminReq;
 //
 //    static {
@@ -24,3 +27,12 @@
 //    }
 //
 //}
+
+    private Response lastResponse;
+    // Metode ini memungkinkan akses ke respons terakhir
+    public Response getLastResponse() {
+        return lastResponse;
+    }
+
+
+}

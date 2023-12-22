@@ -6,6 +6,8 @@ import net.thucydides.core.annotations.Step;
 import org.json.JSONObject;
 import org.junit.Assert;
 
+import static starter.Url.adminUrl;
+import static starter.Url.invUrl;
 import static starter.utils.GenerateToken.tokenAdmin;
 
 public class UpdateAdmin {
@@ -19,25 +21,23 @@ public class UpdateAdmin {
                 .header("Content-Type", "application/json");
     }
 
-    private static String url = "http://34.128.69.15:8000";
-
     @Step("I set {String} endpoint for update admin")
     public String setEndpointUpdateAdmin(String endpointType) {
         String endpoint = null;
         switch (endpointType) {
             case "valid":
-                endpoint = "/admin/bm1OaU";
+                endpoint = adminUrl + "asVTYs";
                 break;
             case "invalid id":
-                endpoint = "/admin/invlid";
+                endpoint = adminUrl + "inv";
                 break;
             case "invalid":
-                endpoint = "/adm/invlid";
+                endpoint = invUrl;
                 break;
             default:
                 Assert.fail("Unsupported base type: " + endpointType);
         }
-        return url + endpoint;
+        return endpoint;
     }
 
     @Step("I send put request with {String} to valid update admin endpoint")

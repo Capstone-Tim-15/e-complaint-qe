@@ -3,31 +3,34 @@ package starter.gocat.user.auth;
 import net.serenitybdd.rest.SerenityRest;
 import net.thucydides.core.annotations.Step;
 import org.json.JSONObject;
+import org.junit.Assert;
 import starter.utils.JsonSchema;
 import starter.utils.JsonSchemaHelper;
 
 import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchema;
 import static net.serenitybdd.rest.SerenityRest.restAssuredThat;
 import static org.hamcrest.Matchers.notNullValue;
+import static starter.Url.invUrl;
+import static starter.Url.userLoginUrl;
 
 public class UserLogin {
 
-    private static String url = "http://34.128.69.15:8000";
+
 
     @Step("I set {String} endpoint for user login")
     public String setEndpointUserLogin(String endpointType) {
         String endpoint = null;
         switch (endpointType) {
             case "valid":
-                endpoint = "/user/login";
+                endpoint = userLoginUrl;
                 break;
             case "invalid":
-                endpoint = "/users/login";
+                endpoint = invUrl;
                 break;
             default:
-                break;
+                Assert.fail("Unsupported base type: " + endpointType);
         }
-        return url + endpoint;
+        return endpoint;
     }
 
     @Step("I send post request with {String} to valid user login endpoint")
@@ -102,12 +105,6 @@ public class UserLogin {
                         .header("Content-Type", "application/json")
                         .body(requestBody.toString())
                         .put(setEndpointUserLogin("valid"));
-                break;
-            case "delete":
-                SerenityRest.given()
-                        .header("Content-Type", "application/json")
-                        .body(requestBody.toString())
-                        .delete(setEndpointUserLogin("valid"));
                 break;
         }
     }

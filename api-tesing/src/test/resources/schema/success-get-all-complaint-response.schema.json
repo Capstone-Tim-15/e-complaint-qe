@@ -59,10 +59,10 @@
           "type": "string"
         },
         "userId": {
-          "$ref": "#/definitions/UserID"
+          "type": "string"
         },
         "name": {
-          "$ref": "#/definitions/Name"
+          "type": "string"
         },
         "photoImage": {
           "type": "string"
@@ -77,7 +77,7 @@
           "type": "string"
         },
         "address": {
-          "type": "string"
+          "$ref": "#/definitions/Address"
         },
         "status": {
           "$ref": "#/definitions/Status"
@@ -113,14 +113,13 @@
       ],
       "title": "Result"
     },
-    "Name": {
+    "Address": {
       "type": "string",
       "enum": [
-        "ara",
-        "anggun",
-        "anisa"
+        "",
+        "Jl. Pahlawan"
       ],
-      "title": "Name"
+      "title": "Address"
     },
     "Status": {
       "type": "string",
@@ -130,15 +129,6 @@
         "Diproses"
       ],
       "title": "Status"
-    },
-    "UserID": {
-      "type": "string",
-      "enum": [
-        "VQ0fXT",
-        "TyiB16",
-        "gLir5y"
-      ],
-      "title": "UserID"
     }
   }
 }

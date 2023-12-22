@@ -10,12 +10,15 @@ import starter.utils.JsonSchemaHelper;
 import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchema;
 import static net.serenitybdd.rest.SerenityRest.restAssuredThat;
 import static org.hamcrest.Matchers.notNullValue;
+import static starter.Url.adminUrl;
+import static starter.Url.invUrl;
 import static starter.utils.GenerateToken.tokenAdmin;
+
 
 public class SearchAdminById {
 
 
-    private static RequestSpecification requestSpec;
+    private static final RequestSpecification requestSpec;
 
     static {
         requestSpec = SerenityRest.given()
@@ -24,22 +27,21 @@ public class SearchAdminById {
                 .header("Content-Type", "application/json");
     }
 
-    private static String url = "http://34.128.69.15:8000";
 
     @Step("I set {String} for search admin by id")
     public String setEndpointSearchAdminById(String endpointType) {
         String endpoint = null;
         switch (endpointType) {
             case "valid endpoint":
-                endpoint = "/admin/search" ;
+                endpoint = adminUrl + "search" ;
                 break;
             case "invalid endpoint":
-                endpoint = "/invalid/" ;
+                endpoint = invUrl ;
                 break;
             default:
                 Assert.fail("Unsupported endpoint type: " + endpointType);
         }
-        return url + endpoint;
+        return endpoint;
     }
 
     @Step("I send get request to {String} search admin by id endpoint")
@@ -55,7 +57,9 @@ public class SearchAdminById {
                        .get(setEndpointSearchAdminById("invalid endpoint"));
                 break;
             case "double query params":
-                requestSpec
+                SerenityRest.given()
+                        .header("Authorization", "Bearer " + tokenAdmin())
+                        .queryParam("id", "asVTYs")
                         .queryParam("name", "Anggun")
                         .get(setEndpointSearchAdminById("valid endpoint"));
                 break;
@@ -77,9 +81,6 @@ public class SearchAdminById {
         JsonSchemaHelper helper = new JsonSchemaHelper();
 
         String schema = helper.getResponseSchema(JsonSchema.SUCCESS_SEARCH_ADMIN_RESPONSE_SCHEMA);
-
-        restAssuredThat(response -> response.body("meta", notNullValue()));
-        restAssuredThat(response -> response.body("results", notNullValue()));
 
         restAssuredThat(response -> response.body(matchesJsonSchema(schema)));
     }

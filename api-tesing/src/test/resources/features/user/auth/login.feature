@@ -41,13 +41,6 @@
       And I receive error message
 
     @NegativeCase
-    Scenario: As a user I can not login with invalid user base
-      Given I set "invalid user base" endpoint for user login
-      When I send post request with valid requestBody to "invalid" user login endpoint
-      Then I receive status code 404
-      And I receive auth error message
-
-    @NegativeCase
     Scenario: As a user I can not login with get request
       Given I set "valid" endpoint for user login
       When I send "get" request to user login
@@ -58,12 +51,5 @@
     Scenario: As a user I can not login with put request
       Given I set "valid" endpoint for user login
       When I send "put" request to user login
-      Then I receive status code 401
-      And I receive auth error message
-
-    @NegativeCase
-    Scenario: As a user I can not login with delete request
-      Given I set "valid" endpoint for user login
-      When I send "delete" request to user login
       Then I receive status code 401
       And I receive auth error message

@@ -10,24 +10,26 @@ import starter.utils.JsonSchemaHelper;
 import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchema;
 import static net.serenitybdd.rest.SerenityRest.restAssuredThat;
 import static org.hamcrest.Matchers.notNullValue;
+import static starter.Url.adminRegistUrl;
+import static starter.Url.invUrl;
 
 public class RegisterAdmin {
-    private static String url = "http://34.128.69.15:8000";
+
 
     @Step("I set {String} endpoint for admin register")
     public String setEndpointAdminRegister(String endpointType) {
         String endpoint = null;
         switch (endpointType) {
             case "valid":
-                endpoint = "/admin/register";
+                endpoint = adminRegistUrl;
                 break;
             case "invalid":
-                endpoint = "/adm/register";
+                endpoint = invUrl;
                 break;
             default:
                 break;
         }
-        return url + endpoint;
+        return endpoint;
     }
 
     @Step("I send post request with {String} to valid admin register endpoint")
